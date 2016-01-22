@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Eje 06 - Uso de Factory II </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Compartir Metodos entre controladores</h1>
+    <hr>
+    <div ng-controller="ControllerUno">
+       <span class="lead text-info">Controlador uno</span>
+       <input type="text" id="controlleruno" size="30" ng-model="nuevoMensaje">
+       <button type="button" name="button" class="btn btn-success" ng-click="nuevo()">Guardar</button>
+       <h3 class="text-info">{{ dato.mensaje }}</h3>
+    </div>
+    <div ng-controller="ControllerDos">
+      <hr>
+      <span class="lead text-success">Controlador dos</span>
+      <input type="text" id="controllerdos" size="30" ng-model="nuevoMensaje">
+      <button type="button" name="button" class="btn btn-success" ng-click="nuevo()">Guardar</button>
+      <h3 class="text-success">{{ dato.mensaje }}</h3>
+    </div>
+    <hr>
+    <div ng-controller="ControllerTres">
+      <button type="button" name="button" class="btn btn-primary" ng-click="resetear()">Mensaje Inicial</button>
+    </div>
+  </div>
+</body>
+</html>
