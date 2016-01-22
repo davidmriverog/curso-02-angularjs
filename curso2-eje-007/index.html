@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Eje 07 - Manejo de formularios con AngularJS </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h3>Manejo de formularios con AngularJS</h3>
+    <form role="form" name="forma">
+      <div class="form-group">
+        <label for="txtNombreApellido">Nombre y Apellido:</label>
+        <input type="text" class="form-control" id="txtNombreApellido" placeholder="Ingrese por favor el nombre y apellido completo">
+      </div>
+      <div class="form-group">
+        <label for="txtEmail">Correo Electronico:</label>
+        <input type="email" class="form-control" id="txtEmail" placeholder="Ingrese por favor el nombre y apellido completo">
+      </div>
+      <div>
+        <p class="help-block text-danger">
+          Campo Obligatorio
+        </p>
+        <p class="help-block text-danger">
+          Correo Inválido
+        </p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="name"> Acepto
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Registrar</button>
+   </form>
+   <hr>
+   <span class="lead text-primary"></span>
+  </div>
+</body>
+</html>
