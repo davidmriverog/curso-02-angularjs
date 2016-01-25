@@ -1,1 +1,36 @@
-<h1>empleados</h1>
+<div class="container">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <input type="text" ng-model="buscar" class="form-control" placeholder="Buscar Empleados">
+    </div>
+    <!-- Table -->
+     <table class="table">
+      <thead>
+        <tr>
+          <td>
+            <a href="" ng-click="ordernarPor('nombre')" title="Ordenar por nombre">
+            Nombre/s
+            </a>
+            <span class="caret" style="cursor: pointer" ng-click="ordernarPor('-nombre')"></span>
+          </td>
+          <td>Apellidos</td>
+          <td>Dia de trabajo</td>
+          <td>Salario</td>
+          <td>Telefono</td>
+          <td>Bono</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="empleado in empleados | orderBy:ordenSeleccionado | filter:buscar ">
+          <td>{{ empleado.nombre | lowercase }} </td>
+          <td>{{ empleado.apellidos | uppercase }}</td>
+          <td>{{ empleado.primerDia | date: 'fullDate'}} a las {{ empleado.primerDia | date: 'h:m a' }}</td>
+          <td>{{ empleado.salario | currency  }}</td>
+          <td>{{ empleado.telefono }}</td>
+          <td>% {{ empleado.bono | number:2 }}</td>
+        </tr>
+      </tbody>
+     </table>
+    </div>
+</div>
