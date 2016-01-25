@@ -12,28 +12,30 @@
   <div class="container">
     <h3>Manejo de formularios con AngularJS</h3>
     <form role="form" name="forma">
-      <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error': forma.nombreU.$invalid, 'has-success': forma.nombreU.$valid }">
         <label for="txtNombreApellido">Nombre y Apellido:</label>
-        <input type="text" class="form-control" id="txtNombreApellido" placeholder="Ingrese por favor el nombre y apellido completo">
+        <input type="text" class="form-control" id="txtNombreApellido" placeholder="Nombre" name="nombreU" ng-model="user.nombre" required>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error': forma.correoU.$invalid, 'has-success': forma.correoU.$valid }">
         <label for="txtEmail">Correo Electronico:</label>
-        <input type="email" class="form-control" id="txtEmail" placeholder="Ingrese por favor el nombre y apellido completo">
+        <input type="email" class="form-control" id="txtEmail" placeholder="Correo" name="correoU" ng-model="user.email" required>
       </div>
-      <div>
-        <p class="help-block text-danger">
-          Campo Obligatorio
-        </p>
-        <p class="help-block text-danger">
-          Correo Inválido
-        </p>
+      <div ng-show="forma.correoU.$dirty && forma.correoU.$invalid">
+	    <div class="alert alert-warning alert-dismissible" role="alert" ng-show="forma.correoU.$error.required">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Error!</strong> Campo Obligatorio
+        </div>
+        <div class="alert alert-danger alert-dismissible" role="alert" ng-show="forma.correoU.$error.email">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Error Crítico!</strong> Correo electrónico Inválido
+        </div>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="name"> Acepto
+          <input type="checkbox" name="aceptoU" ng-model="user.acepto" required> Acepto
         </label>
       </div>
-      <button type="submit" class="btn btn-default">Registrar</button>
+      <button type="submit" class="btn btn-default" ng-disabled="forma.$invalid">Registrar</button>
    </form>
    <hr>
    <span class="lead text-primary"></span>
