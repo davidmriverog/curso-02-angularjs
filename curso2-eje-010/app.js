@@ -24,16 +24,20 @@ angular.module("MyApp",['ngRoute'])
 
     $(document).ready(function(){
 
-      $http.get('http://localhost/curso-02-angularjs/curso2-eje-010/get_data.php')
-        .success(function(data) {
-           $scope.tareas = eval(data);
-            console.log(data)
-         })
-         .error(function(data) {
-            console.log('Error: ' + data);
-         });
-     });
+      $http.get('http://localhost/curso-02-angularjs/curso2-eje-010/data.php',{
+        params:{ 
+          op: "listar-tareas"
+        }
+      })
+      .success(function(data) {
+        $scope.tareas = eval(data);
+        console.log(data);
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
 
+    });
   })
   .controller("crearTareasController",function($scope,$http){
 
