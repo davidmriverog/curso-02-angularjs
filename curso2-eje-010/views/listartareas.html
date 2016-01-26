@@ -1,6 +1,27 @@
-
-<ul>
-  <li ng-repeat="tarea in tareas">
-    {{ tarea.id }} - {{ tarea.titulo }}
-  </li>
-</ul>
+<div class="container">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <input type="text" ng-model="buscar" class="form-control" placeholder="Buscar Empleados">
+    </div>
+    <!-- Table -->
+     <table class="table">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Titulo</td>
+          <td>Descripción</td>
+          <td>Autor</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tarea in tareas | orderBy:ordenSeleccionado | filter:buscar ">
+          <td>{{ tarea.id }} </td>
+          <td>{{ tarea.titulo }}</td>
+          <td>{{ tarea.descripcion }}</td>
+          <td>{{ tarea.autor }}</td>
+        </tr>
+      </tbody>
+     </table>
+    </div>
+</div>
