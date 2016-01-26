@@ -4,13 +4,13 @@ angular.module("MyApp",['ngRoute'])
 	  .when('/',{
 	    templateUrl: 'inicio.html'
 	  })
-	  .when('/tareas',{
+	  .when('tareas',{
 	    templateUrl: 'tareas.html',
-		controller: 'FormTareasController'
+		  controller: 'FormTareasController'
 	  })
-	  .when('/empleados',{
+	  .when('empleados',{
 	    templateUrl: 'empleados.html',
-		controller: 'FormEmpleadosController'
+		  controller: 'FormEmpleadosController'
 	  })
 	  .otherwise({
 	    redirectTo: '/'
