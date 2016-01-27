@@ -41,4 +41,6 @@ angular.module("MyApp",['ngRoute'])
   })
   .controller("crearTareasController",function($scope,$http){
 
+    $("#txtTitulo").focus();
+
   });
